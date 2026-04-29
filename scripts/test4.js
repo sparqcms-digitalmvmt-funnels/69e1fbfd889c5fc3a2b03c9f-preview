@@ -145,13 +145,22 @@ const i18n = {
   "labels": {
     "noStatesAvailable": "Keine Bundesländer für dieses Land verfügbar",
     "selectState": "Bundesland auswählen",
-    "phoneSearchPlaceholder": "Suchen"
+    "phoneSearchPlaceholder": "Suchen",
+    "processing": "Wird verarbeitet...",
+    "close": "Schließen",
+    "cvvModalTitle": "Wo befindet sich mein Sicherheitscode?",
+    "cvvCardBack": "Rückseite der Karte",
+    "cvvCardFront": "Vorderseite der Karte",
+    "cvvThreeDigitLabel": "3-stellige CVV-Nummer",
+    "cvvFourDigitLabel": "4-stellige CVV-Nummer",
+    "cvvBackDescription": "Der 3-stellige Sicherheitscode (CVV) befindet sich auf der Rückseite Ihrer Karte, rechts neben dem Unterschriftsstreifen.",
+    "cvvFrontDescription": "American-Express-Karten haben einen 4-stelligen Code auf der Vorderseite."
   }
 };
 
 // Validation patterns (RegExp – cannot be serialised as JSON)
 i18n.validationPatterns = {
-  zipCodeRegex: /^(?:\d{5}(?:-\d{4})?|[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d|\d{4}|[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[ABD-HJLN-UW-Z]{2})$/,
+  zipCodeRegex: /^(?:\d{5}(?:-\d{4})?|[A-Za-z]\d[A-Za-z](?:[ -]?\d[A-Za-z]\d)?|\d{4}|[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[ABD-HJLN-UW-Z]{2})$/,
   nameRegex: /\b([A-ZÀ-ÿ][-,a-zÀ-ÿ. ']+[ ]*)+$/i,
 };
 
@@ -291,7 +300,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const endpoint =
     `orders?order_id=${orderids.join(",")}` +
-    `&with=order_offers,customer_address_billing,customer_address_shipping,customer,transactions,cart&pageId=P2LvTw3MVTt_KAGyxedypFZk9GgN6cMzmudDoeNYO-HGHcN5exP74ZSLT57AH-DG`
+    `&with=order_offers,customer_address_billing,customer_address_shipping,customer,transactions,cart&pageId=CES6xTiFpyHTD1OeSAxokrPojZv4xMPJcaOChLYjswDy6X6S-zU8NElZueKQM-HI`
 
   const response = await fetch(
     `https://app-cms-api-proxy-staging-001.azurewebsites.net/vrio/${endpoint}`,
