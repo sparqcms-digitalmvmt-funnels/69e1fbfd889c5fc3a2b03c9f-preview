@@ -1,6 +1,13 @@
 
-  
-// Select campaign based on whether this is a VIP page or not  
+
+
+const EMAIL_OVERSIGHT_VALIDATE_URL = 'https://app-cms-api-proxy-staging-001.azurewebsites.net/integration/email-oversight/validate-public';
+
+
+
+
+
+// Select campaign based on whether this is a VIP page or not
 const getVrioCampaignInfoBasedOnPaymentMethod = (isVipUpsell) => {
     const vrioCampaigns = [{"_id":"69b1b08b31cafdd59fb05659","integration":[{"_id":"685435949a3a8c5ffb4854ef","workspace":"develop","platform":"vrio","description":"dev, team api","fields":{"publicApiKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6ImFkbWluIiwib3JnYW5pemF0aW9uIjoibXZtdHNhbmRib3gudnJpbyIsImlkIjoiNTQxNzM0MWMtOTI3ZS00YTc5LTk5MTQtMzcxM2IyM2RlMTNlIiwiaWF0IjoxNzUwMDk4ODg1LCJhdWQiOiJ1cm46dnJpbzphcGk6dXNlciIsImlzcyI6InVybjp2cmlvOmFwaTphdXRoZW50aWNhdG9yIiwic3ViIjoidXJuOnZyaW86YXBpOjE4In0.z4qwr2v87T3wq73w1nT8aSASKIMVLnL0HX1E-2tavrs"},"status":"active","createdAt":1750335264215,"updatedAt":1750349204667,"__v":0,"category":"CRM","id":"685435949a3a8c5ffb4854ef"}],"externalId":"39","name":"German_vi-shift","currency":"USD","countries":[81],"metadata":{"campaign_id":39,"campaign_name":"","payment_type_id":1,"campaign_active":true,"campaign_prepaid":true,"campaign_payment_method_required":true,"campaign_group_transactions":true,"campaign_global_js":"","campaign_global_seo_title":"","campaign_global_seo_keywords":"","campaign_global_seo_description":"","date_created":"2026-03-11 18:12:28","created_by":0,"date_modified":"2026-03-11 18:12:28","modified_by":0,"campaign_notes":"","offers":[],"shipping_profiles":[],"campaignId":"39","externalId":39,"description":"","payment_methods":["amex","discover","visa","master"],"alternative_payments":[],"countries":[{"iso_numeric":276,"calling_code":"49","id":81,"name":"Germany","iso_2":"DE","iso_3":"DEU"}]},"funnels":[],"createdAt":1773252172487,"updatedAt":1773252748134,"packages":[],"status":"active","platform":"vrio","__v":0,"id":"69b1b08b31cafdd59fb05659"}];
 
@@ -300,7 +307,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const endpoint =
     `orders?order_id=${orderids.join(",")}` +
-    `&with=order_offers,customer_address_billing,customer_address_shipping,customer,transactions,cart&pageId=BaBn1OMSHUAvYXzVrICpG7LhAtQ7DOnuL_WSNaW8PR34i6cAbsbPXYqEF7DNJFTh`
+    `&with=order_offers,customer_address_billing,customer_address_shipping,customer,transactions,cart&pageId=eOoDGN9WeicYKOiaUkl8THyxcxAEQOcpv64ICnsomW0p94w_TkKqJCMR9ekeYx6f`
 
   const response = await fetch(
     `https://app-cms-api-proxy-staging-001.azurewebsites.net/vrio/${endpoint}`,
